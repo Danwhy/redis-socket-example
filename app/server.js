@@ -27,7 +27,7 @@ server.route(route);
 io.on('connection', function (socket) {
   socket.on("message", function(data) {
     storeMessage(client, data, function (newData){
-      socket.emit("emit message", newData);
+      io.emit("emit message", newData);
     });
   });
 });
